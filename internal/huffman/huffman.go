@@ -22,9 +22,9 @@ func (h *HeapFreq) Push(x any) {
 	*h = append(*h, x.(FrequencyNode))
 }
 
+// Smallest value is at the end of the array as the largest element was moved to front
 func (h *HeapFreq) Pop() any {
 	old := *h
-
 	n := len(old)
 	x := old[n-1]
 	*h = old[:n-1]
