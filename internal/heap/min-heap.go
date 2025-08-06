@@ -34,6 +34,15 @@ func (h *MinHeap) heapify(i int) {
 	}
 }
 
+func (h *MinHeap) Pop() int {
+	end := len(h.data) - 1
+	h.data[0], h.data[end] = h.data[end], h.data[0]
+	smallest := h.data[end]
+	h.data = h.data[:end]
+	h.heapify(0)
+	return smallest
+}
+
 func (h *MinHeap) Print() {
 	fmt.Println(h.data)
 }
